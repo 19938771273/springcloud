@@ -1,0 +1,14 @@
+server:
+  port: 1001
+#p配置微服务名称
+spring:
+  application:
+    name: eureka-server1
+eureka:
+  instance:
+    hostname: yys.server1.com           #配置本机域名
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://yys.server1.com:1001/eureka/   #配置到其他注册中心eureka结尾
