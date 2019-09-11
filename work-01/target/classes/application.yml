@@ -1,0 +1,31 @@
+spring:
+  jmx:
+    enabled: false
+  #thymelea模板配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+  ##配置的是mysql的用户名 密码以及需要用到的数据库 还有数据库驱动类型
+  datasource:
+    username: root
+    password: yl199709234513y.
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test
+
+#第一个配置的是mapper.xml文件 写sql的
+#第二个是实体类所在的包名称
+mybatis:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.boottext.entity
+
+#配置的是端口
+server:
+  port: 9090
+
+
+

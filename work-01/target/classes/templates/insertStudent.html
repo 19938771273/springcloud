@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"/>
+
+<body style="margin-left: 800px;"cellpadding="10">
+<h1>学生信息添加系统</h1>
+    name-----<input type="text" name="name"/><br>
+    username<input type="text" name="username"/><br>
+    password<input type="text" name="password"/><br>
+    age------<input type="text" name="age"/><br>
+    perms------<input type="text" name="perms"/><br>
+    <input type="submit" id="chick"/>
+</body>
+</html>
+<script>
+    $(function () {
+        $("#chick").click(function(){
+            var name = $("[name=name]").val();
+            var username = $("[name=username]").val();
+            var password = $("[name=password]").val();
+            var age = $("[name=age]").val();
+            var perms = $("[name=perms]").val();
+            alert(name);
+            $.ajax({
+                url:'http://localhost:9090/show/add',
+                method:'Post',
+                data:{name:name,username:username,password:password,age:age,perms:perms},
+                dataType:'text',
+                success:function (data) {
+                    window.location.href=("http://localhost:9090/show/list");
+                }
+            })
+        })
+    })
+
+</script>

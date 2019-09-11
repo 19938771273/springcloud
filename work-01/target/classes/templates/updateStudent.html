@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>修改页面</title>
+</head>
+<body style="margin-left: 700px" cellpadding="10">
+<H1>修改信息</H1>
+<Form th:action="@{/show/update}" method="post">
+    id <input type="text" name="id" style="display:none" th:value="${msg.id}"/><Br>
+    名字------<input type="text" name="name" th:value="${msg.name}" readonly="readonly"/><Br>
+    用户名----<input type="text" name="username" th:value="${msg.username}"/><Br>
+    密码------<input type="text" name="password" th:value="${msg.password}"/><Br>
+    年龄------<input type="text" name="age" th:value="${msg.age}"/><Br>
+    <div shiro:hasPermission="teacher:all">
+    权限------<input type="text" name="perms" th:value="${msg.perms}"/><Br>
+    </div>
+    <input type="submit"/>
+</Form>
+</body>
+</html>

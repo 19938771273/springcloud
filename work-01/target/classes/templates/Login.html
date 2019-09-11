@@ -1,0 +1,52 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:D="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <!--content属性值 :
+         ·width:可视区域的宽度，值可为数字或关键词device-width
+         ·height:同width
+         ·intial-scale:页面首次被显示是可视区域的缩放级别，取值1.0则页面按实际尺寸显示，无任何缩放
+         ·maximum-scale=1.0, minimum-scale=1.0;可视区域的缩放级别，
+         ·maximum-scale用户可将页面放大的程序，1.0将禁止用户放大到实际尺寸之上。
+         ·user-scalable:是否可对页面进行缩放，no 禁止缩放-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录页面</title>
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+</head>
+<body style="margin-left: 800px;margin-top: 300px;background-color:slategray;">
+<h3 th:text="${msg}"></h3>
+<div class="container">
+    <!--图标在bootstrap里集成的-->
+    <h1 class="head" align="left"><span class="glyphicon glyphicon-bell"></span>Login</h1>
+    <!--表单http://www.runoob.com/bootstrap/bootstrap-forms.html-->
+    <form class="form-horizontal" th:action="@{/show/login}" method="post">
+    <div class="form-group">
+        <div class="col-md-5">
+            <input type="text" class="form-control" placeholder="请输入登录名" name="username"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-5">
+            <input type="password" class="form-control" placeholder="请输入密码" name="password"/>
+        </div>
+    </div>
+
+    <label><input type="checkbox"> 记住用户名</label>
+
+    <!--按钮样式http://www.runoob.com/bootstrap/bootstrap-buttons.html-->
+    <div class="form-group">
+        <div class="col-md-5">
+            <button class="btn  btn-primary" id="login">提交</button>
+            <button class="btn  btn-primary">取消</button>
+        </div>
+    </div>
+
+     </form>
+</div>
+
+</body>
+
+</html>

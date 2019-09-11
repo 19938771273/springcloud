@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>学生信息</title>
+</head>
+<body style="margin-left: 600px">
+
+<Table border="1" cellpadding="10">
+    <form th:action="@{/show/gotoadd}" method="post">
+        <div shiro:hasPermission="teacher:all">
+            <button type="submit">添加</button>
+        </div>
+    </form>
+    <h1>当前登录的憨逼是：<span th:text="${session.msg}"></span></h1>
+    <tr style="text-align: center">
+        <th>id</th>
+        <th>名字</th>
+        <th>用户名</th>
+        <th>密码</th>
+        <th>年龄</th>
+        <div shiro:hasPermission="teacher:all">
+            <th>权限</th>
+        </div>
+        <div shiro:hasPermission="teacher:all">
+            <th>操作</th>
+        </div>
+    </tr>
+    <tr th:each="stu:${msg}" style="text-align: center">
+        <td th:text="${stu.id}">1</td>
+        <td th:text="${stu.name}">2</td>
+        <td th:text="${stu.username}">3</td>
+        <td th:text="${stu.password}">4</td>
+        <td th:text="${stu.age}">5</td>
+        <div shiro:hasPermission="teacher:all">
+            <td th:text="${stu.perms}"></td>
+        </div>
+        <div shiro:hasPermission="teacher:all">
+            <td>
+                <form th:action="@{/show/delete/}+${stu.id}" method="put">
+                    <a th:href="@{/show/delete/}+${stu.id}">删除</a>
+                </form>
+                <form th:action="@{/show/gotoupd}" method="post">
+                    <a th:href="@{/show/update/}+${stu.id}" }>修改</a>
+                </form>
+            </td>
+        </div>
+    </tr>
+</Table>
+<form th:action="@{/show/logout}" method="get">
+    <button>点我登出</button>
+</form>
+</body>
+
+</html>
