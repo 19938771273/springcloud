@@ -1,0 +1,12 @@
+server:
+  port: 6001
+spring:
+  application:
+    name: zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://yys.server1.com:1001/eureka/
+zuul:
+  routes:
+    consumer1: /admin/**

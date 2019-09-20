@@ -1,0 +1,15 @@
+server:
+  port: 2002
+#p配置微服务名称
+#spring:
+#  zipkin:
+#    base-url: http://localhost:9411
+spring:
+  application:
+    name: provider1
+eureka:
+  instance:
+    hostname: localhost           #配置本机域名
+  client:
+    service-url:
+      defaultZone: http://yys.server1.com:1001/eureka/    #配置到其他注册中心eureka结尾

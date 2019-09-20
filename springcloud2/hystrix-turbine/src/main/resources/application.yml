@@ -1,0 +1,20 @@
+server:
+  port: 5001
+spring:
+  application:
+    name: turbine
+eureka:
+  client:
+    service-url:
+      defaultZone: http://yys.server1.com:1001/eureka/
+turbine:
+  # 指定集群名称,若为default则为默认集群，多个集群则通过此配置区分
+  cluster-name-expression: new String("default")
+  #指定了需要收集监控信息的服务名，多个以“,”进行区分
+  app-config: consumer1
+  #此配置默认为false，则服务是以host进行区分，若设置为true则以host+port进行区分
+  combine-host-port: true
+  #  指定收集路径
+  instanceUrlSuffix: /hystrix.stream
+
+

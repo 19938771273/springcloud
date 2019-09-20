@@ -1,0 +1,13 @@
+server:
+  port: 1001
+spring:
+  application:
+    name: Eureka-server1
+eureka:
+  instance:
+    hostname: yys.server1.com           #配置本机域名
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://yys.server1.com:1001/eureka/
