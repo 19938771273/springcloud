@@ -14,6 +14,9 @@ public class EurekaServer1
 {
     public static void main( String[] args )
     {
+		/**
+		ÐÞ¸Ä
+		*/
 
         SpringApplication.run(EurekaServer1.class,args);
     }
